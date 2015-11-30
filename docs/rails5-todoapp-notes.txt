@@ -1,0 +1,39 @@
+ tasklists:
+  model:
+    validations
+    accepts_nested_attributes_for :todo
+  controller methods:
+    before_filter authenticate_user, permissions based on role
+    edit ? do I need an edit action?, maybe only need an update action with inline forms, rather than unique views for the edit action
+    create
+      should accept nested attributes for todos so we can create a todo and a list at the same time
+    update
+    destroy
+      should destroy all children associations as well
+  views:
+    form to create new list, with optional todo to immediately populate list
+todos:
+  model:
+    validations
+    logic
+  controller:
+    index
+    show
+    edit
+    create
+    update
+    destroy
+user:
+  model:
+    validations
+    logic for polymorphic associations
+  controller:
+    login
+    logout
+    index
+    show
+    edit
+    create
+    update
+    destroy
+

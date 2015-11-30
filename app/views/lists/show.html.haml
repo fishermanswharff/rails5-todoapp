@@ -1,0 +1,12 @@
+%ul
+  - @todos.each do |todo|
+    = form_for todo, remote: true, class: 'todo-checkbox' do |f|
+      = f.check_box :completed, id: "todo_#{todo.id}_completed"
+    %li.todo= todo.name
+    - if todo.note.present?
+      .todo-note!= todo.note.body
+%hr
+= form_for [@list, Todo.new], url: list_todos_path(list_url_slug: @list.url_slug) do |f|
+  = f.text_field :name
+  = f.hidden_field :list_id, value: @list.id
+  = f.submit 'Add a new todo'

@@ -1,0 +1,24 @@
+FactoryGirl.define do
+
+  factory :tasklist do
+    name 'List 1'
+
+    factory :list_with_todos do
+      name 'List with todos'
+
+      transient do
+        # posts_count is declared as a transient attribute and available in
+        # attributes on the factory, as well as the callback via the evaluator
+        todos_count 5
+      end
+
+      # the after(:create) yields two values; the user instance itself and the
+      # evaluator, which stores all values from the factory, including transient
+      # attributes; `create_list`'s second argument is the number of records
+      # to create and we make sure the user is associated properly to the post
+      after(:create) do |list, evaluator|
+        create_list(:todo, evaluator.todos_count, tasklist: list)
+      end
+    end
+  end
+end

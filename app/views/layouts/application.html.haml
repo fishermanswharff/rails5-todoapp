@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title Rails 5 Todo App
+    = stylesheet_link_tag 'application'
+    = csrf_meta_tags
+  %body
+    = render partial: 'shared/nav'
+    - unless flash.nil? || flash.empty?
+      = render partial: 'shared/flash', locals: { flash: flash }
+
+    %main
+      = yield
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
