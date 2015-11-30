@@ -4,6 +4,13 @@
 
 * Ruby version: 2.2.2
 
+
+
+
+
+
+
+<!-- 
 * System dependencies
 
 * Configuration
@@ -19,3 +26,4 @@
 * Deployment instructions
 
 * ...
+ -->
