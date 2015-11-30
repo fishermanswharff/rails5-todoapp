@@ -63,4 +63,3 @@ tags
 # env vars
 config/env.yml
 config/database.yml
-.project/
